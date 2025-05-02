@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Available Flowers</h1>
+<div class="row">
+    {% for flower in flowers %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <img src="{{ url_for('static', filename='images/' + flower.image_url) }}" class="card-img-top" alt="{{ flower.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ flower.name }}</h5>
+                <p class="card-text">£{{ flower.price }}</p>
+                <a href="{{ url_for('main.product', flower_id=flower.id) }}" class="btn btn-info">View</a>
+                <a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-primary">Add to Basket</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

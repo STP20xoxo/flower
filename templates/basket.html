@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Your Basket</h1>
+{% if flowers %}
+    <ul class="list-group mb-3">
+        {% for flower in flowers %}
+        <li class="list-group-item d-flex justify-content-between">
+            {{ flower.name }}
+            <span>${{ flower.price }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    <h3>Total: ${{ total }}</h3>
+    <a href="{{ url_for('main.checkout') }}" class="btn btn-warning">Checkout</a>
+{% else %}
+    <p>Your basket is empty.</p>
+{% endif %}
+{% endblock %}

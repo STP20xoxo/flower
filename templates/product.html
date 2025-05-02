@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ flower.name }}</h1>
+<img src="{{ url_for('static', filename='images/' + flower.image_url) }}" alt="{{ flower.name }}" class="img-fluid mb-3">
+<p><strong>Description:</strong> {{ flower.description }}</p>
+<p><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
+<p><strong>Delivery Info:</strong> {{ flower.delivery_info }}</p>
+<p><strong>Price:</strong> £{{ flower.price }}</p>
+<a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-success">Add to Basket</a>
+{% endblock %}
