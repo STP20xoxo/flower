@@ -1,9 +1,8 @@
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from models import db
-from routes import main as main_blueprint
+from routes import main as main_blueprint  # <-- This should be the only import from routes
 
 def create_app():
     app = Flask(__name__)
@@ -16,3 +15,7 @@ def create_app():
     app.register_blueprint(main_blueprint)
 
     return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True)

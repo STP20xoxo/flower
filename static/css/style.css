@@ -1,6 +1,6 @@
 
 body {
-    background-color: #f9f7f6;
+    background-color: #bb7fdd; /* soft lavender, change to any hex you like */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -11,7 +11,7 @@ h1, h2, h3 {
 
 
 h1.display-4 {
-    color: #9b2d20;  /* Bloom color */
+    color: #000000;  /* Bloom color */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 4rem;
     letter-spacing: 2px;
@@ -24,20 +24,48 @@ h2 {
 h1, h2, .lead {
     text-align: center;
 }
+
 /* Card Effects */
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    background-color: #f0c2c2; /* Background color for the flower card */
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s; /* Adding transition for color change */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card-body {
+    padding: 10px;
+    background-color: #d6b2ee;
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #333;
+    font-size: 0.9em;
 }
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 15px rgba(235, 164, 164, 0.2);
+    background-color: #e681aa; 
 }
-
+.card-img-top {
+    height: 150px; /* Set to desired uniform height */
+    object-fit: cover; /* Ensures image fills the space without distortion */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
 /* Navbar */
 
 .navbar {
@@ -69,13 +97,14 @@ form .form-control {
 }
 
 form .btn-success {
-    background-color: #7bb661;
-    border-color: #7bb661;
+    background-color: #afb661;
+    border-color: #afb661;
 }
 
 form .btn-success:hover {
-    background-color: #6ea04f;
-    border-color: #6ea04f;
+    background-color: #51ae7b;
+    border-color: #51ae7b;
+    transition: background-color 0.5s ease-in-out, transform 0.5s;
 }
 
 /* Page Container */
@@ -83,18 +112,33 @@ form .btn-success:hover {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
-    background: #fff;
+    background: #f0caca;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
 .flower-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #fafafa;
+    position: relative; /* Necessary for absolute positioning of the description */
 }
+
+.flower-description {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    max-width: 250px;
+    display: none;
+    z-index: 1000;
+    pointer-events: none; /* So it doesn't block hover */
+    font-size: 0.9rem;
+}
+
+
+.description-text {
+    font-size: 1rem;
+}
+
 
 .flower-card img {
     max-width: 100%;
@@ -110,7 +154,7 @@ form .btn-success:hover {
 
 /* Header Section (Bloom and Blossom Title) */
 .text-center h1 {
-    color: #9b2d20;
+    color: #000000;
     font-size: 3.5rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
