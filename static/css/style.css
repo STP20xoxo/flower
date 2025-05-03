@@ -9,27 +9,50 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
+
+h1.display-4 {
+    color: #9b2d20;  /* Bloom color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h1, h2, .lead {
+    text-align: center;
+}
+/* Card Effects */
+
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
     border-radius: 12px;
     overflow: hidden;
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Navbar */
 
 .navbar {
     margin-bottom: 20px;
 }
+
+/* Button Styles */
 
 .btn {
     transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    background-color: #ff6f61;  /* Adding a light hover effect */
+    color: white;
 }
 
 .list-group-item {
@@ -37,8 +60,12 @@ h1, h2, h3 {
     border: 1px solid #ddd;
 }
 
+
+/* Form Controls */
 form .form-control {
     border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
 form .btn-success {
@@ -49,4 +76,53 @@ form .btn-success {
 form .btn-success:hover {
     background-color: #6ea04f;
     border-color: #6ea04f;
+}
+
+/* Page Container */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.flower-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.flower-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.flower-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+/* Header Section (Bloom and Blossom Title) */
+.text-center h1 {
+    color: #9b2d20;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-center p {
+    font-size: 1.25rem;
+    color: #777;
+    margin-top: -10px;
+}
+
+/* Basket and Checkout */
+.list-group-item {
+    background-color: #fffaf0;
+    border: 1px solid #ddd;
 }
