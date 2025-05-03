@@ -19,7 +19,7 @@
                 <h5 class="card-title">{{ flower.name }}</h5>
                 <p class="card-text">£{{ flower.price }}</p>
                 <div class="mt-auto">
-                    <a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-primary">Add to Basket</a>
+                    <a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-primary add-to-basket-detail">Add to Basket</a>
                 </div>
             </div>
             <!-- Floating AJAX description -->

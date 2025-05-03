@@ -16,17 +16,20 @@ def product(flower_id):
     flower = Flower.query.get_or_404(flower_id)
     return render_template('product.html', flower=flower)
 
-@main.route('/add_to_basket/<int:flower_id>')
+
+@main.route('/add-to-basket/<int:flower_id>')
 def add_to_basket(flower_id):
+    flower = Flower.query.get_or_404(flower_id)
+
     basket = session.get('basket', [])
     basket.append(flower_id)
     session['basket'] = basket
 
-    flower = Flower.query.get_or_404(flower_id)
-
+    # Return JSON if it's an AJAX request
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return jsonify({'message': f'{flower.name} has been added to your basket!'})
-    
+        return jsonify({'message': f'{flower.name} has been added to your basket.'})
+
+    # Otherwise, redirect normally
     return redirect(url_for('main.basket'))
 
 @main.route('/basket')

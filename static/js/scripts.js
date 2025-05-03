@@ -15,11 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Floating tooltip
     const floatingDesc = document.getElementById("floating-description");
 
-    // Combine description + click logic
+    // Description + card click
     document.querySelectorAll('.flower-card').forEach(card => {
         const flowerId = card.getAttribute('data-flower-id');
 
-        // AJAX hover
         card.addEventListener('mouseenter', function () {
             fetch(`/flower-description/${flowerId}`)
                 .then(response => response.json())
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             floatingDesc.style.display = 'none';
         });
 
-        // Make card clickable
+        // Make card clickable (except buttons)
         card.addEventListener('click', function (e) {
             if (!e.target.closest('a.btn')) {
                 const link = card.getAttribute('data-link');
@@ -51,12 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-      // Add to basket via AJAX + show notification
-      document.querySelectorAll('.btn-primary').forEach(button => {
+    // Add to basket via AJAX + show notification
+    document.querySelectorAll('.btn-primary, .add-to-basket-detail').forEach(button => {
         button.addEventListener('click', function (e) {
-            e.preventDefault(); // Stop link redirect
+            e.preventDefault(); // Prevent page redirect
             const url = this.getAttribute('href');
-
+    
             fetch(url, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
@@ -73,9 +72,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Optional: Button hover
+    // Button hover effect
     document.querySelectorAll(".btn").forEach(btn => {
         btn.addEventListener("mouseover", () => btn.classList.add("btn-light"));
         btn.addEventListener("mouseout", () => btn.classList.remove("btn-light"));
     });
 });
+
+// Notification handler (keep this outside the DOMContentLoaded if preferred)
+function showNotification(message) {
+    const notif = document.getElementById('notification');
+    const notifMsg = document.getElementById('notification-message');
+    notifMsg.innerText = message;
+    notif.style.display = 'block';
+
+    setTimeout(() => {
+        notif.style.display = 'none';
+    }, 2500);
+}
