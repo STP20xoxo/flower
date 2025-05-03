@@ -119,20 +119,23 @@ form .btn-success:hover {
 
 .flower-card {
     position: relative; /* Necessary for absolute positioning of the description */
+    min-height: 400px;
 }
 
 .flower-description {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed; /* instead of absolute */
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    padding: 10px;
-    border-radius: 6px;
-    max-width: 250px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    max-width: 200px;
+    font-size: 0.85rem;
+    z-index: 9999;
     display: none;
-    z-index: 1000;
-    pointer-events: none; /* So it doesn't block hover */
-    font-size: 0.9rem;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 
 .description-text {

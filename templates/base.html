@@ -17,6 +17,9 @@
     <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
+    <div id="floating-description" class="flower-description" style="display: none;">
+        <p class="description-text">Loading...</p>
+    </div>    
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
