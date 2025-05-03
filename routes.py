@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, session, request
 from models import db, Flower
 from forms import CheckoutForm
-from flask import jsonify 
+from flask import jsonify, request
 
 main = Blueprint('main', __name__)
 
@@ -21,6 +21,12 @@ def add_to_basket(flower_id):
     basket = session.get('basket', [])
     basket.append(flower_id)
     session['basket'] = basket
+
+    flower = Flower.query.get_or_404(flower_id)
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify({'message': f'{flower.name} has been added to your basket!'})
+    
     return redirect(url_for('main.basket'))
 
 @main.route('/basket')

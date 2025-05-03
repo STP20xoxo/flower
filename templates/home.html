@@ -13,19 +13,21 @@
 <div class="row">
     {% for flower in flowers %}
     <div class="col-md-3 mb-4">
-        <div class="flower-card card h-100" data-flower-id="{{ flower.id }}">
+        <div class="flower-card card h-100" data-flower-id="{{ flower.id }}" data-link="{{ url_for('main.product', flower_id=flower.id) }}">
             <img src="{{ url_for('static', filename='images/' + flower.image_url) }}" class="card-img-top" alt="{{ flower.name }}">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{ flower.name }}</h5>
                 <p class="card-text">£{{ flower.price }}</p>
                 <div class="mt-auto">
-                    <a href="{{ url_for('main.product', flower_id=flower.id) }}" class="btn btn-info me-2">View</a>
                     <a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-primary">Add to Basket</a>
                 </div>
             </div>
+            <!-- Floating AJAX description -->
+            <div class="flower-description" id="desc-{{ flower.id }}">
+                <p class="description-text">Loading...</p>
+            </div>
         </div>
-    </div>
-    
+    </div>    
     {% endfor %}
 </div>
 
