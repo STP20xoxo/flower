@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add to basket via AJAX for all pages
     document.querySelectorAll('.btn-primary, .add-to-basket-detail').forEach(button => {
         button.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent page redirect
+            e.preventDefault();        // Prevent default link behavior
+            e.stopPropagation();       // Prevent parent .flower-card click from triggering
             const url = this.getAttribute('href');
     
             fetch(url, {

@@ -16,7 +16,7 @@ def product(flower_id):
     flower = Flower.query.get_or_404(flower_id)
     return render_template('product.html', flower=flower)
 
-@main.route('/add_to_basket/<int:flower_id>', methods=['POST'])
+@main.route('/add_to_basket/<int:flower_id>', methods=['GET', 'POST'])
 def add_to_basket(flower_id):
     flower = Flower.query.get_or_404(flower_id)
 

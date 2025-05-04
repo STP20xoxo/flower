@@ -25,9 +25,14 @@ h1, h2, .lead {
     text-align: center;
 }
 
+body.homepage {
+    color: #51ae7b; /* Change text color */
+}
+
 .homepage .card-text {
     color: #333;
     font-size: 0.9em;
+    text-align: center;
 }
 
 .homepage .card-img-top {
@@ -53,13 +58,20 @@ h1, h2, .lead {
 .homepage .card-title {
     font-size: 1.2em;
     font-weight: bold;
+    text-align: center;
 }
 /* Homepage-specific hover effects */
 .homepage .card:hover {
+    cursor: pointer;
     transform: scale(1.05);
     box-shadow: 10px 15px rgba(235, 164, 164, 0.2);
     background-color: #e681aa;
     transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; /* Slower or different transition on homepage */ /* Slower or different transition on homepage */
+}
+
+.add-to-basket-detail {
+    position: relative;
+    z-index: 9999;
 }
 
 .product-detail .flower-description {
