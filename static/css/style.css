@@ -68,39 +68,13 @@ body.homepage {
     background-color: #e681aa;
     transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; /* Slower or different transition on homepage */ /* Slower or different transition on homepage */
 }
-
-.add-to-basket-detail {
-    position: relative;
-    z-index: 9999;
-}
-
-.product-detail .flower-description {
-    display: none; /* Hide the floating description on product page */
-}
-
-/* Ensure the cards on product page do not fade in (no transition) */
-.product-detail .card {
-    opacity: 1 !important; /* Disable the fade-in effect */
-}
-
-/* Optional: Prevent click-to-load functionality on product pages */
-.product-detail .flower-card {
-    pointer-events: none; /* Disable mouse interaction */
-}
-
-/* Prevent Add-to-Basket AJAX on product page */
-.product-detail .btn-primary, .product-detail .add-to-basket-detail {
-    pointer-events: none; /* Disable Add to Basket functionality */
-}
-
+ 
 /* Navbar */
-
 .navbar {
     margin-bottom: 20px;
 }
 
 /* Button Styles */
-
 .btn {
     transition: background-color 0.3s ease-in-out, transform 0.2s;
 }

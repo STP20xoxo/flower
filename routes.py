@@ -14,7 +14,7 @@ def home():
 @main.route('/flower/<int:flower_id>')
 def product(flower_id):
     flower = Flower.query.get_or_404(flower_id)
-    return render_template('product.html', flower=flower)
+    return render_template('product.html', flower=flower, flower_id = flower_id)
 
 @main.route('/add_to_basket/<int:flower_id>', methods=['GET', 'POST'])
 def add_to_basket(flower_id):

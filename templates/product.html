@@ -18,13 +18,11 @@
             <!-- Content Section -->
             <div class="col-md-7">
                 <div class="card-body">
-                    <h3 class="card-title">{{ flower.name }}</h3>
                     <p><strong>Price:</strong> £{{ flower.price }}</p>
                     <p><strong>Description:</strong> {{ flower.description }}</p>
                     <p><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
                     <p><strong>Delivery Info:</strong> {{ flower.delivery_info }}</p>
-                    <p>Flower ID: {{ flower.id }}</p>
-                    <a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-primary add-to-basket-detail">Add to Basket</a>
+                    <a href="{{ url_for('main.add_to_basket', flower_id=flower_id) }}" class="btn btn-primary add-to-basket-detail">Add to Basket</a>
                 </div>
             </div>
         </div>
