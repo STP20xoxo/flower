@@ -11,13 +11,12 @@ def home():
     flowers = Flower.query.all()
     return render_template('home.html', flowers=flowers)
 
-@main.route('/product/<int:flower_id>')
+@main.route('/flower/<int:flower_id>')
 def product(flower_id):
     flower = Flower.query.get_or_404(flower_id)
     return render_template('product.html', flower=flower)
 
-
-@main.route('/add-to-basket/<int:flower_id>')
+@main.route('/add_to_basket/<int:flower_id>', methods=['POST'])
 def add_to_basket(flower_id):
     flower = Flower.query.get_or_404(flower_id)
 

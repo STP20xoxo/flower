@@ -1,10 +1,44 @@
 {% extends 'base.html' %}
+
+{% block title %}{{ flower.name }} - Bloom and Blossom{% endblock %}
+
 {% block content %}
-<h1>{{ flower.name }}</h1>
-<img src="{{ url_for('static', filename='images/' + flower.image_url) }}" alt="{{ flower.name }}" class="img-fluid mb-3">
-<p><strong>Description:</strong> {{ flower.description }}</p>
-<p><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
-<p><strong>Delivery Info:</strong> {{ flower.delivery_info }}</p>
-<p><strong>Price:</strong> £{{ flower.price }}</p>
-<a href="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" class="btn btn-success">Add to Basket</a>
+<!-- Fancy Header -->
+<div class="text-center my-5">
+    <h1 class="display-4 fw-bold bloom-header">{{ flower.name }}</h1>
+    <p class="lead text-muted">Discover nature’s beauty, one flower at a time.</p>
+</div>
+
+<div class="container">
+    <div class="flower-card card p-3">
+        <div class="row g-4 align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-5">
+                <img src="{{ url_for('static', filename='images/' + flower.image_url) }}" class="img-fluid rounded" alt="{{ flower.name }}">
+            </div>
+
+            <!-- Content Section -->
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h3 class="card-title">{{ flower.name }}</h3>
+                    <p><strong>Price:</strong> £{{ flower.price }}</p>
+                    <p><strong>Description:</strong> {{ flower.description }}</p>
+                    <p><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
+                    <p><strong>Delivery Info:</strong> {{ flower.delivery_info }}</p>
+
+                    <!-- Add to Basket Form -->
+                    <form action="{{ url_for('main.add_to_basket', flower_id=flower.id) }}" method="POST" class="mt-3">
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label"><strong>Quantity:</strong></label>
+                            <input type="number" id="quantity" name="quantity" min="1" value="1" required class="form-control" style="width: 100px;">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add to Basket</button>
+                    </form>
+
+                    <a href="{{ url_for('main.home') }}" class="btn btn-secondary mt-3">Back to Flowers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
