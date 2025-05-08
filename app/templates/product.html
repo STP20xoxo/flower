@@ -12,15 +12,15 @@
         <div class="row g-4 align-items-center">
             <!-- Image Section -->
             <div class="col-md-5">
-                <img src="{{ url_for('static', filename='images/' + flower.image_url) }}" class="img-fluid rounded" alt="{{ flower.name }}">
+                <img src="{{ url_for('static', filename='images/' + flower.image_url) }}" class="img-fluid rounded product-image" alt="{{ flower.name }}">
             </div>
 
             <!-- Content Section -->
             <div class="col-md-7">
                 <div class="card-body">
                     <p><strong>Price:</strong> £{{ flower.price }}</p>
-                    <p><strong>Description:</strong> {{ flower.description }}</p>
-                    <p><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
+                    <p class="hidden-detail"><strong>Description:</strong> {{ flower.description }}</p>
+                    <p class="hidden-detail"><strong>Environmental Impact:</strong> {{ flower.environment_impact }} kg CO₂</p>
                     <p><strong>Delivery Info:</strong> {{ flower.delivery_info }}</p>
                     <a href="{{ url_for('main.add_to_basket', flower_id=flower_id) }}" class="btn btn-primary add-to-basket-detail">Add to Basket</a>
                 </div>

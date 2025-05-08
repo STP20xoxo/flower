@@ -68,6 +68,17 @@ body.homepage {
     background-color: #e681aa;
     transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; /* Slower or different transition on homepage */ /* Slower or different transition on homepage */
 }
+
+.hidden-detail {
+    display: none;
+}
+.product-image {
+    width: 100%;
+    height: 300px;         /* Or any fixed height you want */
+    object-fit: cover;     /* Keeps aspect ratio while filling the box */
+    border-radius: 12px;
+}
+
  
 /* Navbar */
 .navbar {

@@ -3,7 +3,7 @@ from models import db, Flower
 from forms import CheckoutForm
 from flask import jsonify, request
 
-main = Blueprint('main', __name__)
+main = Blueprint('__main__', __name__)
 
 
 @main.route('/')
